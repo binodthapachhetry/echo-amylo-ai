@@ -1,0 +1,9 @@
+# requirements.txt
+torch==2.7.0
+torchvision==0.22.0
+torchaudio==2.7.0
+
+opencv-python==4.11.0.86
+streamlit==1.45.1
+einops==0.8.1
+tqdm==4.67.1
