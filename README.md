@@ -13,7 +13,7 @@ This toolkit reproduces and extends the **NeurIPS 2019 ML4H EchoNet-Dynamic** be
 
 * **EF Prediction** – 3-D CNNs (e.g. R(2+1)D-18) trained on 32-frame clips  
 * **LV Segmentation** – 2-D FCNs (e.g. DeepLabV3-ResNet50) for systole / diastole frames  
-* Publication-quality plots, boot-strapped CIs, and rendered MP4 overlays
+* Publication-quality plots, bootstrapped CIs, and rendered MP4 overlays
 
 ## Table of Contents
 1. [Quick Start](#quick-start)  
@@ -27,7 +27,7 @@ This toolkit reproduces and extends the **NeurIPS 2019 ML4H EchoNet-Dynamic** be
 ```bash
 # 1️⃣ Create & activate environment
 python -m venv venv_echoai && source venv_echoai/bin/activate
-pip install -r requirements.txt   # ▸ PyTorch ≥1.12, TorchVision ≥0.13
+pip install -r requirements.txt   # ▸ PyTorch 2.7, TorchVision 0.22
 
 # 2️⃣ Point to dataset root (must contain FileList.csv and Videos/)
 export ECHONET_DATA_DIR=/path/to/a4c-video-dir
