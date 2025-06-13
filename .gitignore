@@ -7,3 +7,7 @@ echonet.cfg
 .echonet.cfg
 *.pyc
 echonet.egg-info/
+
+a4c-video-dir/
+a4c-video-dir_test/
+output/
