@@ -25,7 +25,7 @@ import echonet
     default="r2plus1d_18")
 @click.option("--pretrained/--random", default=True)
 @click.option("--weights", type=click.Path(exists=True, dir_okay=False), default=None)
-@click.option("--run_test/--skip_test", default=False)
+@click.option("--run_test/--skip_test", default=True)
 @click.option("--num_epochs", type=int, default=45)
 @click.option("--lr", type=float, default=1e-4)
 @click.option("--weight_decay", type=float, default=1e-4)
@@ -46,8 +46,8 @@ def run(
     pretrained=True,
     weights=None,
 
-    run_test=False,
-    num_epochs=45,
+    run_test=True, #False
+    num_epochs=45, #45
     lr=1e-4,
     weight_decay=1e-4,
     lr_step_period=15,
@@ -160,6 +160,7 @@ def run(
         epoch_resume = 0
         bestLoss = float("inf")
         try:
+            f.write("Loading previously saved checkpoint file\n")
             # Attempt to load checkpoint
             checkpoint = torch.load(os.path.join(output, "checkpoint.pt"))
             model.load_state_dict(checkpoint['state_dict'])
@@ -170,6 +171,9 @@ def run(
             f.write("Resuming from epoch {}\n".format(epoch_resume))
         except FileNotFoundError:
             f.write("Starting run from scratch\n")
+
+        f.write("Epoch resume {}\n".format(epoch_resume))
+        f.write("Num epochs {}\n".format(num_epochs))
 
         for epoch in range(epoch_resume, num_epochs):
             print("Epoch #{}".format(epoch), flush=True)

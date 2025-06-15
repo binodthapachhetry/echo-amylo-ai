@@ -25,7 +25,7 @@ import echonet
     default="deeplabv3_resnet50")
 @click.option("--pretrained/--random", default=False)
 @click.option("--weights", type=click.Path(exists=True, dir_okay=False), default=None)
-@click.option("--run_test/--skip_test", default=False)
+@click.option("--run_test/--skip_test", default=True)
 @click.option("--save_video/--skip_video", default=False)
 @click.option("--num_epochs", type=int, default=50)
 @click.option("--lr", type=float, default=1e-5)
@@ -44,7 +44,7 @@ def run(
     pretrained=False,
     weights=None,
 
-    run_test=False,
+    run_test=True,
     save_video=False,
     num_epochs=50,
     lr=1e-5,
