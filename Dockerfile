@@ -10,6 +10,9 @@ RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 COPY . /workspace
 WORKDIR /workspace
 
+# Install package in editable mode to expose `echonet` console script
+RUN pip3 install --no-cache-dir -e .
+
 ENV ECHONET_DATA_DIR=/data
 
 ENTRYPOINT ["echonet"]
